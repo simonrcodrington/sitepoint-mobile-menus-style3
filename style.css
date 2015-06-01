@@ -1,0 +1,211 @@
+/*box sizing*/
+*,
+*:before,
+*:after {
+  moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*container for the whole website*/
+.web-container{
+  max-width: 500px;
+  position: relative;
+}
+
+/*main container for content*/
+.main-container{
+  max-width: 500px;
+  z-index: 2;
+  position: relative;
+}
+
+
+
+/*Nav menu styling*/
+.nav-menu-wrap {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 20px;
+}
+.nav-menu-wrap.active{
+  z-index: 3;
+}
+
+/*nav menu background*/
+.nav-menu-wrap .nav-menu-background{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0);
+  -webkit-transition: background 300ms linear;
+  -moz-transition: background 300ms linear;
+  transition: background 300ms linear;
+}
+.nav-menu-wrap.active .nav-menu-background{
+  background: rgba(0,0,0,0.75);
+}
+
+.nav-menu {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  overflow: hidden;
+  -webkit-transition: all 400ms linear;
+  -o-transition: all 400ms linear;
+  -moz-transition: all 400ms linear;
+  transition: all 400ms linear;
+  opacity: 0;
+  -webkit-transform: scale3d(0.5,0.5,1);
+  -moz-transform: scale3d(0.5,0.5,1);
+  -ms-transform: scale(0.5,0.5);
+  -o-transform: scale(0.5,0.5);
+  transform: scale3d(0.5,0.5,1);
+}
+.nav-menu.active{
+  -webkit-transform: scale3d(1,1,1);
+  -moz-transform: scale3d(1,1,1);
+  -ms-transform: scale(1,1);
+  -o-transform: scale(1,1);
+  transform: scale3d(1,1,1);
+  opacity: 1;
+}
+
+.nav-menu,
+.sub-menu {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  background: #eee;
+}
+
+.nav-menu li {
+  list-style-type: none;
+  display: block;
+  background: transparent;
+  float: left;
+  width: 100%;
+  border-top: solid 1px #ccc;
+  background: #eee;
+}
+.nav-menu li:last-child{
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-menu li > a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+  position: relative;
+  float: left;
+  width: 80%;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.nav-menu li > a:hover {
+  background: #ccc;
+}
+
+.nav-menu .sub-menu-toggle {
+  display: none;
+}
+
+/*Sub nav menus*/
+.nav-menu .sub-menu {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  -moz-transition: all 400ms ease-in;
+  -webkit-transition: all 400ms ease-in;
+  transition: all 400ms ease-in;
+  z-index: 5;
+   -moz-transform: translate3d(0%,0px,0px);
+   -webkit-transform: translate3d(0%,0px,0px);
+   -ms-transform: translate(0%,0px);
+   -o-transform: translate(0%,0px);
+   transform: translate3d(0%,0px,0px);
+}
+.nav-menu .sub-menu.active{
+   -moz-transform: translate3d(-100%,0px,0px);
+   -webkit-transform: translate3d(-100%,0px,0px);
+   -ms-transform: translate(-100%,0px);
+   -o-transform: translate(-100%,0px);
+   transform: translate3d(-100%,0px,0px);
+  
+}
+
+/*Sub menu toggle*/
+.nav-menu .sub-menu-toggle {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  color: #fff;
+  background: #ccc;
+  display: block;
+  float: left;
+  cursor: pointer;
+  width: 20%;
+  text-align: center
+}
+.nav-menu .sub-menu-toggle:hover,
+.nav-menu .sub-menu-toggle:active{
+  background: #ddd;
+}
+.nav-menu .sub-menu-toggle:before{
+  display: inline-block;
+  -webkit-transition: all 300ms linear;
+  -o-transition: all 300ms linear;
+  -moz-transition: all 300ms linear
+  -ms-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+.nav-menu .sub-menu-toggle.flip:before{
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+/*Nav menu toggle*/
+.nav-menu-toggle {
+  border: solid 1px #ddd;
+  background: #ccc;
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 15px;
+  z-index: 999;
+}
+
+.nav-menu-toggle .toggle {
+  color: #fff;
+  line-height: 35px;
+  font-size: 150%;
+}
+
+/*Close menu items*/
+.nav-menu .close div{
+  padding: 10px 15px;
+  cursor: pointer;
+  background: #ccc;
+}
+.nav-menu .close div:hover{
+  background: #aaa;
+}
+.nav-menu .close div i{
+  float: right;
+}
